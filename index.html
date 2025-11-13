@@ -310,6 +310,10 @@
       gap: 16px;
       align-items: baseline;
       margin-bottom: 18px;
+      /* NEW: keep header same width/position as cards */
+  max-width: 980px;    /* or whatever max width you used for .grid */
+  margin-left: auto;
+  margin-right: auto;
     }
 
     .section-header h3 {
@@ -418,7 +422,7 @@
       font-size: 13px;
         /* NEW: responsive, non-stretching layout */
   grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
-  max-width: 900px;     /* caps overall width */
+  max-width: 980px;     /* caps overall width */
   margin: 0 auto;       /* centers the block */
     }
 
@@ -952,6 +956,7 @@
   </script>
 </body>
 </html>
+
 
 
 
