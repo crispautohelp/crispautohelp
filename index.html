@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Crisp Auto Help – Expert Car-Buying Help & Deal Review</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta
+    name="description"
+    content="Crisp Auto Help offers expert car-buying guidance and deal review. Get fair deals, clear explanations, and no-pressure support on your next car purchase."
+  />
+  <style>
+    :root {
+      --bg: #050816;
+      --bg-alt: #0c1220;
+      --card: #101827;
+      --accent: #38bdf8;
+      --accent-soft: rgba(56, 189, 248, 0.15);
+      --text: #f9fafb;
+      --muted: #9ca3af;
+      --border: #1f2937;
+      --danger: #f97373;
+      --success: #4ade80;
+      --radius-lg: 16px;
+      --radius-xl: 22px;
+      --shadow-soft: 0 18px 45px rgba(0, 0, 0, 0.6);
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+        "Segoe UI", sans-serif;
+      background: radial-gradient(circle at top, #0b1120, #020617 55%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .page {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 20px 16px 72px;
+    }
+
+    header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 10px 0 20px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .brand-logo {
+      width: 40px;
+      height: 40px;
+      border-radius: 14px;
+      background: radial-gradient(circle at 30% 0, #38bdf8, #0ea5e9 40%, #020617);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 800;
+      font-size: 20px;
+      color: white;
+      box-shadow: 0 10px 25px rgba(56, 189, 248, 0.6);
+    }
+
+    .brand-text h1 {
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+
+    .brand-text span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    nav {
+      display: flex;
+      gap: 16px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+
+    nav a {
+      padding: 6px 10px;
+      border-radius: 999px;
+      transition: all 0.12s ease-out;
+    }
+
+    nav a:hover {
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--text);
+    }
+
+    /* Hero */
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.7fr);
+      gap: 26px;
+      padding: 32px 0 40px;
+      align-items: center;
+    }
+
+    .hero-text h2 {
+      font-size: clamp(30px, 4vw, 40px);
+      line-height: 1.1;
+      margin-bottom: 10px;
+    }
+
+    .hero-highlight {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      border: 1px solid rgba(56, 189, 248, 0.5);
+      font-size: 12px;
+      color: var(--accent);
+      margin-bottom: 8px;
+    }
+
+    .hero-tagline {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .hero-sub {
+      color: var(--muted);
+      max-width: 520px;
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    .hero-bullets {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 22px;
+      font-size: 13px;
+    }
+
+    .hero-bullets span {
+      padding: 5px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.8);
+      color: var(--muted);
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 10px;
+    }
+
+    .btn-primary,
+    .btn-ghost {
+      padding: 10px 16px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 500;
+      border: 1px solid transparent;
+      cursor: pointer;
+      transition: transform 0.1s ease-out, box-shadow 0.12s ease-out,
+        background 0.12s ease-out, border 0.12s ease-out;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      color: #0b1120;
+      box-shadow: 0 15px 35px rgba(56, 189, 248, 0.4);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 12px 28px rgba(56, 189, 248, 0.5);
+    }
+
+    .btn-ghost {
+      background: rgba(15, 23, 42, 0.85);
+      color: var(--muted);
+      border-color: var(--border);
+    }
+
+    .btn-ghost:hover {
+      border-color: var(--accent);
+      color: var(--text);
+      transform: translateY(-1px);
+    }
+
+    .hero-note {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .hero-card {
+      background: radial-gradient(circle at top, #111827, #020617 70%);
+      border-radius: var(--radius-xl);
+      padding: 18px 18px 20px;
+      box-shadow: var(--shadow-soft);
+      border: 1px solid rgba(31, 41, 55, 0.9);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      font-size: 13px;
+    }
+
+    .hero-card-tag {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      background: rgba(34, 197, 94, 0.16);
+      border: 1px solid rgba(34, 197, 94, 0.5);
+      color: #bbf7d0;
+    }
+
+    .hero-card-stats {
+      font-size: 11px;
+      color: var(--muted);
+      text-align: right;
+    }
+
+    .hero-deal-row {
+      display: flex;
+      justify-content: space-between;
+      font-size: 12px;
+      margin-bottom: 8px;
+    }
+
+    .hero-deal-row span:nth-child(2) {
+      color: var(--muted);
+    }
+
+    .hero-deal-score {
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-radius: 12px;
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px dashed rgba(55, 65, 81, 0.85);
+      font-size: 12px;
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .hero-pill {
+      font-size: 11px;
+      padding: 3px 8px;
+      border-radius: 999px;
+      border: 1px solid rgba(56, 189, 248, 0.6);
+      color: var(--accent);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .hero-savings {
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .hero-savings strong {
+      color: var(--accent);
+    }
+
+    /* Sections */
+    section {
+      margin-bottom: 40px;
+    }
+
+    .section-header {
+      display: flex;
+      justify-content: space-between;
+      gap: 16px;
+      align-items: baseline;
+      margin-bottom: 18px;
+    }
+
+    .section-header h3 {
+      font-size: 20px;
+    }
+
+    .section-header p {
+      font-size: 13px;
+      color: var(--muted);
+      max-width: 420px;
+    }
+
+    /* Pricing cards */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: radial-gradient(circle at top left, #111827, #020617 85%);
+      border-radius: var(--radius-lg);
+      padding: 16px 16px 18px;
+      border: 1px solid var(--border);
+      box-shadow: 0 16px 40px rgba(15, 23, 42, 0.7);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card.highlight {
+      border-color: rgba(56, 189, 248, 0.7);
+      box-shadow: 0 20px 55px rgba(56, 189, 248, 0.35);
+    }
+
+    .card-tag {
+      position: absolute;
+      right: 12px;
+      top: 12px;
+      font-size: 10px;
+      padding: 3px 7px;
+      border-radius: 999px;
+      background: rgba(56, 189, 248, 0.16);
+      border: 1px solid rgba(56, 189, 248, 0.55);
+      color: var(--accent);
+    }
+
+    .card h4 {
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .price {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 10px;
+    }
+
+    .price strong {
+      font-size: 18px;
+      color: var(--accent);
+    }
+
+    ul.features {
+      list-style: none;
+      font-size: 13px;
+      color: var(--muted);
+      margin: 8px 0 10px;
+    }
+
+    ul.features li {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 4px;
+    }
+
+    ul.features li::before {
+      content: "✓";
+      font-size: 11px;
+      margin-top: 2px;
+      color: var(--accent);
+    }
+
+    .card-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      margin-top: 6px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .mini-note {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 8px;
+    }
+
+    /* Process */
+    .process-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 12px;
+      font-size: 13px;
+    }
+
+    .process-step {
+      background: rgba(15, 23, 42, 0.9);
+      border-radius: 14px;
+      padding: 10px 11px;
+      border: 1px solid var(--border);
+    }
+
+    .process-step-number {
+      font-size: 11px;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+
+    .process-step-title {
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .process-step p {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    /* About / trust */
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 2fr) minmax(0, 1.5fr);
+      gap: 18px;
+    }
+
+    .pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 10px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    .pill {
+      padding: 4px 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.9);
+    }
+
+    .quote {
+      font-size: 13px;
+      color: var(--muted);
+      border-left: 2px solid rgba(148, 163, 184, 0.7);
+      padding-left: 10px;
+      margin-bottom: 6px;
+    }
+
+    .quote span {
+      display: block;
+      font-size: 12px;
+      color: #e5e7eb;
+      margin-top: 4px;
+    }
+
+    /* Contact */
+    .contact-box {
+      background: radial-gradient(circle at top, #0f172a, #020617 75%);
+      border-radius: var(--radius-xl);
+      padding: 16px 16px 18px;
+      border: 1px solid rgba(31, 41, 55, 0.95);
+      box-shadow: var(--shadow-soft);
+      margin-top: 8px;
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+      gap: 16px;
+      font-size: 13px;
+    }
+
+    .contact-grid label {
+      font-size: 12px;
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+    }
+
+    .input-row {
+      margin-bottom: 10px;
+    }
+
+    input,
+    textarea {
+      width: 100%;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(15, 23, 42, 0.9);
+      color: var(--text);
+      padding: 9px 11px;
+      font-family: inherit;
+      font-size: 13px;
+      outline: none;
+      transition: border 0.12s ease-out, box-shadow 0.12s ease-out,
+        background 0.12s ease-out;
+    }
+
+    textarea {
+      border-radius: 14px;
+      min-height: 90px;
+      resize: vertical;
+    }
+
+    input:focus,
+    textarea:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(56, 189, 248, 0.55);
+      background: #020617;
+    }
+
+    .contact-hint {
+      font-size: 11px;
+      color: var(--muted);
+      margin-top: 6px;
+    }
+
+    footer {
+      margin-top: 40px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(31, 41, 55, 0.9);
+      font-size: 11px;
+      color: var(--muted);
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    footer a {
+      text-decoration: underline;
+      text-decoration-style: dotted;
+      text-underline-offset: 3px;
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-card {
+        order: -1;
+      }
+
+      .grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .process-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .two-col,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      header {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav {
+        width: 100%;
+        justify-content: flex-start;
+        flex-wrap: wrap;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .page {
+        padding-inline: 14px;
+      }
+
+      .grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .process-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .btn-primary,
+      .btn-ghost {
+        justify-content: center;
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <header>
+      <div class="brand">
+        <div class="brand-logo">C</div>
+        <div class="brand-text">
+          <h1>Crisp Auto Help</h1>
+          <span>Expert guidance. Fair deals. No pressure.</span>
+        </div>
+      </div>
+      <nav>
+        <a href="#services">Services</a>
+        <a href="#process">How it works</a>
+        <a href="#about">About</a>
+        <a href="#contact">Get a quote</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-text">
+          <div class="hero-highlight">
+            <span>New?</span> Start with a quick deal review.
+          </div>
+          <p class="hero-tagline">
+            Expert guidance. Fair deals. No pressure.
+          </p>
+          <h2>Car-buying help from someone who’s sat on the other side of the desk.</h2>
+          <p class="hero-sub">
+            Crisp Auto Help reviews your quotes, exposes hidden fees, and walks you through the numbers so you don’t overpay or get pressured into products you don’t need.
+          </p>
+          <div class="hero-bullets">
+            <span>✓ Deal review & savings analysis</span>
+            <span>✓ F&I / warranty guidance</span>
+            <span>✓ Trade-in value check</span>
+          </div>
+          <div class="hero-actions">
+            <a href="#contact" class="btn-primary">
+              Get my deal reviewed
+              <span>→</span>
+            </a>
+            <a href="#services" class="btn-ghost">View all services</a>
+          </div>
+          <div class="hero-note">
+            Typical clients save <strong>$500–$2,500+</strong> compared to going in alone.
+          </div>
+        </div>
+
+        <aside class="hero-card" aria-label="Example deal review">
+          <div class="hero-card-header">
+            <div>
+              <div style="font-size: 13px; font-weight: 600; margin-bottom: 2px">
+                Example Deal Review
+              </div>
+              <div style="font-size: 11px; color: var(--muted)">
+                2024 Honda CR-V EX-L · 36/12 lease
+              </div>
+            </div>
+            <div class="hero-card-stats">
+              <div class="hero-card-tag">Client saved $1,980</div>
+            </div>
+          </div>
+          <div class="hero-deal-row">
+            <span>Dealer quote</span>
+            <span>$529/mo · $2,999 DAS</span>
+          </div>
+          <div class="hero-deal-row">
+            <span>Hidden add-ons</span>
+            <span style="color: var(--danger)">+$1,245</span>
+          </div>
+          <div class="hero-deal-row">
+            <span>Target deal</span>
+            <span style="color: var(--success)">$449–$469/mo</span>
+          </div>
+          <div class="hero-deal-score">
+            <div>
+              <strong>Deal score:</strong> <span style="color: #fecaca">Yellow → Red</span><br />
+              I’d push back on doc fees, “protection” add-ons, and money factor markup.
+            </div>
+            <div class="hero-pill">3 min review · text recap</div>
+          </div>
+          <div class="hero-savings">
+            After sending my script, the client removed junk add-ons and improved the money factor, saving
+            <strong>$1,980</strong> over the lease.
+          </div>
+        </aside>
+      </section>
+
+      <!-- Services / Pricing -->
+      <section id="services">
+        <div class="section-header">
+          <h3>Services & pricing</h3>
+          <p>
+            Start small with a simple quote review or let me guide you from first idea to keys-in-hand. No pressure, no sales pitch — just clear numbers and a plan.
+          </p>
+        </div>
+
+        <div class="grid">
+          <!-- Tier 1 -->
+          <article class="card">
+            <h4>Tier 1 · Deal Review</h4>
+            <p class="price">
+              <strong>From $79</strong> · perfect if you already have a quote.
+            </p>
+            <ul class="features">
+              <li>Full review of your dealer quote or worksheet</li>
+              <li>Breakdown of price, fees, rate, and add-ons</li>
+              <li>Trade-in value check (if applicable)</li>
+              <li>Red / yellow / green “deal score”</li>
+              <li>Clear target numbers you should push for</li>
+              <li>One follow-up question or quick call</li>
+            </ul>
+            <div class="card-footer">
+              <span>Most people start here.</span>
+              <a href="#contact" class="btn-ghost" style="font-size: 12px; padding: 6px 10px">
+                Book a review
+              </a>
+            </div>
+          </article>
+
+          <!-- Tier 2 -->
+          <article class="card highlight">
+            <div class="card-tag">Most popular</div>
+            <h4>Tier 2 · Negotiation Coach</h4>
+            <p class="price">
+              <strong>From $199</strong> · you handle the dealer, I handle the strategy.
+            </p>
+            <ul class="features">
+              <li>Everything in Tier 1 included</li>
+              <li>Personalized negotiation scripts</li>
+              <li>Email / text templates to send to dealers</li>
+              <li>Up to three updated deal reviews</li>
+              <li>F&I product review (warranty, GAP, protections)</li>
+              <li>Trade-in offer strategy & comparison</li>
+              <li>30–60 minute live coaching session</li>
+            </ul>
+            <div class="card-footer">
+              <span>Ideal for serious shoppers this week.</span>
+              <a href="#contact" class="btn-primary" style="font-size: 12px; padding: 7px 12px">
+                Talk strategy
+              </a>
+            </div>
+          </article>
+
+          <!-- Tier 3 -->
+          <article class="card">
+            <h4>Tier 3 · Full Concierge</h4>
+            <p class="price">
+              <strong>From $549</strong> · I guide you from “I need a car” to “keys in hand”.
+            </p>
+            <ul class="features">
+              <li>Personal needs assessment call</li>
+              <li>Vehicle research & model recommendations</li>
+              <li>Market pricing overview for your area</li>
+              <li>Help contacting multiple dealers (or scripts you can send)</li>
+              <li>All quotes reviewed & compared in one place</li>
+              <li>Negotiation support until the deal is locked</li>
+              <li>Contract review before you sign</li>
+              <li>Text support until you take delivery</li>
+            </ul>
+            <div class="card-footer">
+              <span>Best for busy professionals & families.</span>
+              <a href="#contact" class="btn-ghost" style="font-size: 12px; padding: 6px 10px">
+                Request concierge
+              </a>
+            </div>
+          </article>
+        </div>
+
+        <p class="mini-note">
+          Need something simpler? I also offer quick “best offer” checks, trade-in valuations, and lease contract reviews as à la carte add-ons.
+        </p>
+      </section>
+
+      <!-- Process -->
+      <section id="process">
+        <div class="section-header">
+          <h3>How it works</h3>
+          <p>Simple, fast, and built around how dealers actually work — because that’s where I come from.</p>
+        </div>
+        <div class="process-grid">
+          <div class="process-step">
+            <div class="process-step-number">Step 1</div>
+            <div class="process-step-title">Share where you’re at</div>
+            <p>
+              Tell me if you’re just starting, already have a quote, or are sitting in the showroom right now.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="process-step-number">Step 2</div>
+            <div class="process-step-title">Send your info</div>
+            <p>
+              Upload or paste your quote, worksheet, VIN, and trade details. The more details, the better the outcome.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="process-step-number">Step 3</div>
+            <div class="process-step-title">Get your game plan</div>
+            <p>
+              I send back a clear breakdown: what’s fair, what isn’t, and exact phrases you can use to push back.
+            </p>
+          </div>
+          <div class="process-step">
+            <div class="process-step-number">Step 4</div>
+            <div class="process-step-title">Close with confidence</div>
+            <p>
+              I stay in your corner for questions, updated quotes, and contract review so you sign only when it makes sense.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- About / Trust -->
+      <section id="about">
+        <div class="section-header">
+          <h3>Why work with Crisp Auto Help?</h3>
+          <p>
+            I work in the dealership world — and I know exactly where numbers get padded, how trade-ins get undervalued, and how payment
+            shoppers get boxed in.
+          </p>
+        </div>
+        <div class="two-col">
+          <div>
+            <p style="font-size: 14px; color: var(--muted); margin-bottom: 10px">
+              This service is built for normal people who just want a fair deal without spending weeks becoming a car expert.
+            </p>
+            <p style="font-size: 14px; color: var(--muted); margin-bottom: 10px">
+              I translate dealer talk into plain English, show you where the money really is, and give you a simple plan to follow — or
+              handle it all with you if you choose the concierge route.
+            </p>
+            <div class="pill-row">
+              <div class="pill">Inside knowledge of dealership tactics</div>
+              <div class="pill">Transparent, flat-fee pricing</div>
+              <div class="pill">No kickbacks from dealers, ever</div>
+            </div>
+          </div>
+          <div>
+            <div class="quote">
+              “I walked in nervous and walked out feeling like I hadn’t left any money on the table. The script you gave me worked word-for-word.”
+              <span>— Recent client, Tacoma area (name on request)</span>
+            </div>
+            <div class="quote">
+              “The finance office tried to sell me every protection under the sun. Having you on text while I was there was a lifesaver.”
+              <span>— Lease client, remote consult</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact -->
+      <section id="contact">
+        <div class="section-header">
+          <h3>Get your deal reviewed</h3>
+          <p>
+            Send a quick snapshot of where you’re at. I’ll reply with which service makes the most sense and a simple flat-fee quote — no hard sell, ever.
+          </p>
+        </div>
+        <div class="contact-box">
+          <div class="contact-grid">
+            <div>
+              <form>
+                <div class="input-row">
+                  <label for="name">Name</label>
+                  <input id="name" type="text" placeholder="Your name" />
+                </div>
+                <div class="input-row">
+                  <label for="email">Email</label>
+                  <input id="email" type="email" placeholder="you@example.com" />
+                </div>
+                <div class="input-row">
+                  <label for="stage">Where are you in the process?</label>
+                  <input
+                    id="stage"
+                    type="text"
+                    placeholder="Example: I have a quote, I’m just starting, I’m at the dealer right now, etc."
+                  />
+                </div>
+                <div class="input-row">
+                  <label for="details">Deal details / link / notes</label>
+                  <textarea
+                    id="details"
+                    placeholder="Paste any numbers, links, or screenshot descriptions here. (MSRP, payment, down payment, trade-in, etc.)"
+                  ></textarea>
+                </div>
+                <button type="submit" class="btn-primary" style="margin-top: 4px">
+                  Send inquiry
+                </button>
+                <div class="contact-hint">
+                  This form doesn’t send anywhere yet — connect it to your preferred email, CRM, or form tool.
+                </div>
+              </form>
+            </div>
+            <div>
+              <p style="font-size: 13px; color: var(--muted); margin-bottom: 8px">
+                Prefer direct contact? You can also set this up however you like:
+              </p>
+              <ul class="features" style="margin-bottom: 6px">
+                <li>Link this section to a Calendly booking page.</li>
+                <li>Swap the form for a simple “Email me” button.</li>
+                <li>Add your phone or business text line for urgent deals.</li>
+              </ul>
+              <p class="contact-hint">
+                Once we connect, I’ll ask for your quote or numbers, confirm pricing for the service you need, and give you a
+                turnaround time before you pay anything.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <span>© <span id="year"></span> Crisp Auto Help. All rights reserved.</span>
+      <span>Not affiliated with any manufacturer or dealership. For educational & consulting purposes only.</span>
+    </footer>
+  </div>
+
+  <script>
+    // Set current year in footer
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
