@@ -334,6 +334,41 @@
       position: relative;
       overflow: hidden;
     }
+/* À la carte add-ons */
+.grid-addons {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+
+.addon-card {
+  background: rgba(15, 23, 42, 0.9);
+  border-radius: var(--radius-lg);
+  padding: 14px 14px 16px;
+  border: 1px solid var(--border);
+  font-size: 13px;
+}
+
+.addon-card h4 {
+  font-size: 14px;
+  margin-bottom: 4px;
+}
+
+.addon-price {
+  font-size: 12px;
+  color: var(--muted);
+  margin-bottom: 6px;
+}
+
+.addon-price strong {
+  color: var(--accent);
+}
+
+.addon-card p {
+  font-size: 12px;
+  color: var(--muted);
+}
 
     .card.highlight {
       border-color: rgba(56, 189, 248, 0.7);
@@ -812,6 +847,53 @@
           Need something simpler? I also offer quick “best offer” checks, trade-in valuations, and lease contract reviews as à la carte add-ons.
         </p>
       </section>
+      <!-- À la carte add-ons -->
+      <section id="addons">
+        <div class="section-header">
+          <h3>À la carte services</h3>
+          <p>
+            Just need a quick gut check or a second set of eyes? These add-ons are perfect when you don’t need a full plan.
+          </p>
+        </div>
+
+        <div class="grid-addons">
+          <article class="addon-card">
+            <h4>Quick Offer Check</h4>
+            <p class="addon-price"><strong>$39</strong> · single quote snapshot</p>
+            <p>Send one offer and I’ll tell you if it’s fair, where it’s padded, and whether I’d sign it as-is.</p>
+          </article>
+
+          <article class="addon-card">
+            <h4>Trade-In Valuation Review</h4>
+            <p class="addon-price"><strong>$29</strong> · trade-only review</p>
+            <p>I compare your trade number against guides and recent market data so you know if they’re low-balling you.</p>
+          </article>
+
+          <article class="addon-card">
+            <h4>Add-On & Warranty Review</h4>
+            <p class="addon-price"><strong>$39</strong> · F&I menu review</p>
+            <p>Share the menu from finance and I’ll flag what’s worth considering and what’s just profit for the store.</p>
+          </article>
+
+          <article class="addon-card">
+            <h4>Lease Contract Review</h4>
+            <p class="addon-price"><strong>$49</strong> · final contract check</p>
+            <p>I review your lease contract before you sign to confirm payment, money factor, residual, and add-ons match the deal you agreed to.</p>
+          </article>
+
+          <article class="addon-card">
+            <h4>Payment Accuracy Check</h4>
+            <p class="addon-price"><strong>$29</strong> · math double-check</p>
+            <p>I run the numbers on your payment so you know the dealer’s math is correct and nothing “moved” in finance.</p>
+          </article>
+
+          <article class="addon-card">
+            <h4>Doc & Dealer Fee Check</h4>
+            <p class="addon-price"><strong>$19</strong> · fee sanity check</p>
+            <p>Quick review of your doc, dealer, and “market” fees to see if they’re normal for your area or padded.</p>
+          </article>
+        </div>
+      </section>
 
      
 
@@ -925,4 +1007,5 @@
   </script>
 </body>
 </html>
+
 
