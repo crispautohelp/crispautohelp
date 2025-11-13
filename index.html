@@ -228,6 +228,9 @@
       border: 1px solid rgba(31, 41, 55, 0.9);
       position: relative;
       overflow: hidden;
+        /* NEW */
+  max-width: 380px;       /* keeps it from stretching too wide */
+  margin-left: auto;      /* sticks to the right side nicely */
     }
 
     .hero-card-header {
@@ -413,6 +416,10 @@
       grid-template-columns: repeat(4, minmax(0, 1fr));
       gap: 12px;
       font-size: 13px;
+        /* NEW: responsive, non-stretching layout */
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+  max-width: 900px;     /* caps overall width */
+  margin: 0 auto;       /* centers the block */
     }
 
     .process-step {
@@ -420,6 +427,8 @@
       border-radius: 14px;
       padding: 10px 11px;
       border: 1px solid var(--border);
+        /* Optional: give them a subtle max-width so text lines aren't super long */
+  max-width: 260px;
     }
 
     .process-step-number {
@@ -943,6 +952,7 @@
   </script>
 </body>
 </html>
+
 
 
 
